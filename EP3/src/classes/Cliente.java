@@ -3,11 +3,7 @@
  */
 package classes;
 
-import static org.junit.Assert.fail;
-
 import java.util.Scanner;
-
-import org.junit.Test;
 
 /**
  * @author alan_
@@ -16,8 +12,8 @@ import org.junit.Test;
 public class Cliente {
 
 	Scanner sc = new Scanner(System.in);
-	String[] clienteComum = {};
-	String[] clienteEspecial = {};
+	String[] clienteComum = new String[10];
+	String[] clienteEspecial = new String[10];
 	
 	public static void main(String[] args) {
 		testClienteComum();
@@ -26,6 +22,7 @@ public class Cliente {
 
 	public static void testClienteComum() {
 		ClienteComum cc = new ClienteComum();
+		System.out.println("Digite o nome de um cliente Comum:");
 		try {
 			cc.Cadastro("Falha");
 		} catch (IllegalArgumentException ex) {
@@ -35,6 +32,7 @@ public class Cliente {
 
 	public static void testClienteEspecial() {
 		ClienteEspecial ce = new ClienteEspecial();
+		System.out.println("Digite o nome de um cliente expecial:");
 		try {
 			ce.Cadastro("Falha");
 		} catch (IllegalArgumentException ex) {
@@ -43,28 +41,25 @@ public class Cliente {
 	}
 }
 
-class ClienteComum extends Cliente  throws IllegalArgumentException ex{
+class ClienteComum extends Cliente {
 
-	@SuppressWarnings("unused")
-	public void Cadastro(String clienteParcial) {
-		System.out.println("Digite o nome de um cliente Comum:");
+	public void Cadastro(String clienteParcial) throws IllegalArgumentException {
 		clienteParcial = sc.next();
 		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha") ) {
-			IllegalArgumentException ex;
+			new IllegalArgumentException();
 		} else {
 			clienteComum[0] = clienteParcial;
 		}
 	}
 }
 
-class ClienteEspecial extends Cliente throws IllegalArgumentException ex{
+class ClienteEspecial extends Cliente {
 	
 	@SuppressWarnings("unused")
-	public void Cadastro(String clienteParcial) {
-		System.out.println("Digite o nome de um cliente Comum:");
+	public void Cadastro(String clienteParcial) throws IllegalArgumentException{
 		clienteParcial = sc.next();
 		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha") ) {
-			IllegalArgumentException ex;
+			new IllegalArgumentException();
 		} else {
 			clienteEspecial[0] = clienteParcial;
 		}
