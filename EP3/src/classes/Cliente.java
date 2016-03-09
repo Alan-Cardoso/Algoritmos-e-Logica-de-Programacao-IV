@@ -12,10 +12,8 @@ import java.util.Scanner;
 public class Cliente {
 
 	static Scanner sc = new Scanner(System.in);
-	String[] clienteComum = new String[10];
-	String[] clienteEspecial = new String[10];
-	
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		testClienteComum();
 		testClienteEspecial();
 	}
@@ -27,7 +25,8 @@ public class Cliente {
 		try {
 			cc.Cadastro();
 		} catch (IllegalArgumentException ex) {
-			System.out.println("Ouve uma falha no cadastro. Digite um nome válido \n");
+			System.out
+					.println("Ouve uma falha no cadastro. Digite um nome válido \n");
 			testClienteComum();
 		}
 	}
@@ -39,7 +38,8 @@ public class Cliente {
 		try {
 			ce.Cadastro();
 		} catch (IllegalArgumentException ex) {
-			System.out.println("Ouve uma falha no cadastro. Digite um nome válido \n");
+			System.out
+					.println("Ouve uma falha no cadastro. Digite um nome válido \n");
 			testClienteEspecial();
 		}
 	}
@@ -49,10 +49,11 @@ class ClienteComum extends Cliente {
 
 	public void Cadastro() throws IllegalArgumentException {
 		String clienteParcial = sc.next();
-		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha")) {
+		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha")
+				|| Integer.parseInt(clienteParcial) >= 0) {
 			throw new IllegalArgumentException();
 		} else {
-			clienteComum[0] = clienteParcial;
+
 			System.out.println("\nCliente cadastrado com sucesso!!!\n");
 		}
 	}
@@ -62,11 +63,11 @@ class ClienteEspecial extends Cliente {
 
 	public void Cadastro() throws IllegalArgumentException {
 		String clienteParcial = sc.next();
-		
-		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha")) {
+
+		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha")
+				|| Integer.parseInt(clienteParcial) >= 0) {
 			throw new IllegalArgumentException();
 		} else {
-			clienteEspecial[0] = clienteParcial;
 			System.out.println("\nCliente cadastrado com sucesso!!!\n");
 		}
 	}
