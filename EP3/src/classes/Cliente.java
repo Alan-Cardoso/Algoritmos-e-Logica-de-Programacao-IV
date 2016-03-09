@@ -11,57 +11,63 @@ import java.util.Scanner;
  */
 public class Cliente {
 
-	Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in);
 	String[] clienteComum = new String[10];
 	String[] clienteEspecial = new String[10];
 	
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		testClienteComum();
 		testClienteEspecial();
 	}
 
 	public static void testClienteComum() {
 		ClienteComum cc = new ClienteComum();
+
 		System.out.println("Digite o nome de um cliente Comum:");
 		try {
-			cc.Cadastro("Falha");
+			cc.Cadastro();
 		} catch (IllegalArgumentException ex) {
-			// TODO: handle exception
+			System.out.println("Ouve uma falha no cadastro. Digite um nome válido \n");
+			testClienteComum();
 		}
 	}
 
 	public static void testClienteEspecial() {
 		ClienteEspecial ce = new ClienteEspecial();
+
 		System.out.println("Digite o nome de um cliente expecial:");
 		try {
-			ce.Cadastro("Falha");
+			ce.Cadastro();
 		} catch (IllegalArgumentException ex) {
-			// TODO: handle exception
+			System.out.println("Ouve uma falha no cadastro. Digite um nome válido \n");
+			testClienteEspecial();
 		}
 	}
 }
 
 class ClienteComum extends Cliente {
 
-	public void Cadastro(String clienteParcial) throws IllegalArgumentException {
-		clienteParcial = sc.next();
-		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha") ) {
-			new IllegalArgumentException();
+	public void Cadastro() throws IllegalArgumentException {
+		String clienteParcial = sc.next();
+		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha")) {
+			throw new IllegalArgumentException();
 		} else {
 			clienteComum[0] = clienteParcial;
+			System.out.println("\nCliente cadastrado com sucesso!!!\n");
 		}
 	}
 }
 
 class ClienteEspecial extends Cliente {
-	
-	@SuppressWarnings("unused")
-	public void Cadastro(String clienteParcial) throws IllegalArgumentException{
-		clienteParcial = sc.next();
-		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha") ) {
-			new IllegalArgumentException();
+
+	public void Cadastro() throws IllegalArgumentException {
+		String clienteParcial = sc.next();
+		
+		if (clienteParcial.equals("Falha") || clienteParcial.equals("falha")) {
+			throw new IllegalArgumentException();
 		} else {
 			clienteEspecial[0] = clienteParcial;
+			System.out.println("\nCliente cadastrado com sucesso!!!\n");
 		}
 	}
 }
