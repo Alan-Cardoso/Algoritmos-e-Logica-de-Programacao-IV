@@ -1,4 +1,5 @@
 package classe;
+
 /**
  * 
  */
@@ -16,7 +17,7 @@ public class NivelDeHormonio {
 
 	static FileReader fileReaderCoor, fileReaderLogHorm;
 	static BufferedReader bufferedReaderCoor, bufferedReaderLogHorm;
-	static String[] coordenadas;
+	static String[] coordenadas = new String[1000];
 	static String[][] logHorm = new String[100_000][100];
 	int cont = 0;
 
@@ -80,25 +81,25 @@ public class NivelDeHormonio {
 		}
 	}
 
-	@SuppressWarnings("null")
 	private static void comparandoArrays() {
-		int[] coor = null;
-		int[] arrayFinal = null;
+		int[] coor = {};
+		int[] arrayFinal = {};
 		int cont = 0;
-		for (int i = 0; i < logHorm.length; i++) {
+		int i = 0;
+		
+		while (coordenadas[0] != null) {
+			coor[0] = Integer.parseInt(coordenadas[i]);
 
-			coor[i] = Integer.parseInt(coordenadas[i]);
-
-			if (logHorm[coor[cont]][++cont] == null) {
+			if (Integer.parseInt(logHorm[coor[cont]][++cont]) >= 0) {
+				arrayFinal[i] = Integer.parseInt(logHorm[coor[cont]][++cont]);
+			} else {
 				arrayFinal[i] = -1;
 			}
-			if (logHorm[coor[cont]][++cont] != null) {
-				arrayFinal[i] = Integer.parseInt(logHorm[coor[cont]][++cont]);
-			}
-			cont = cont + 2;
+			cont =+ 2;
+			i++;
 		}
-		for (int i = 0; i < arrayFinal.length; i++) {
-			System.out.print(arrayFinal[i]);
+		for (int j = 0; j < arrayFinal.length; j++) {
+			System.out.print(arrayFinal[j]);
 		}
 	}
 }
