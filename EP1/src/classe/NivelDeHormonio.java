@@ -85,18 +85,17 @@ public class NivelDeHormonio {
 		int[] coor = {};
 		int[] arrayFinal = {};
 		int cont = 0;
-		int i = 0;
+
 		
-		while (coordenadas[0] != null) {
-			coor[0] = Integer.parseInt(coordenadas[i]);
+		for (int i = 0; coordenadas[0] != null; i++) {
+			coor[i] = Integer.parseInt(coordenadas[i]);
 
 			if (Integer.parseInt(logHorm[coor[cont]][++cont]) >= 0) {
-				arrayFinal[i] = Integer.parseInt(logHorm[coor[cont]][++cont]);
+				arrayFinal[i] = Integer.parseInt(logHorm[coor[cont]][coor[++cont]]);
 			} else {
 				arrayFinal[i] = -1;
 			}
 			cont =+ 2;
-			i++;
 		}
 		for (int j = 0; j < arrayFinal.length; j++) {
 			System.out.print(arrayFinal[j]);
