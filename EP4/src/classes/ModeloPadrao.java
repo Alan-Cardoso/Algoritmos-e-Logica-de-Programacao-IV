@@ -4,7 +4,10 @@ package classes;
  * @author alan_
  *
  */
-public class ModeloPadrao {// Fazer método main
+public class ModeloPadrao { // Fazer método main
+
+	public int tempoMaxCuzumento;
+	public int potencuaMaxia;
 	
 	public void descongelar() {
 
@@ -28,11 +31,42 @@ public class ModeloPadrao {// Fazer método main
 
 	public void grelhar() {
 
+	}
+
+	/**
+	 * @return the tempoMaxCuzumento
+	 */
+	public int getTempoMaxCuzumento() {
+		return tempoMaxCuzumento;
+	}
+
+	/**
+	 * @param tempoMaxCuzumento the tempoMaxCuzumento to set
+	 */
+	public void setTempoMaxCuzumento(int tempoMaxCuzumento) {
+		this.tempoMaxCuzumento = tempoMaxCuzumento;
+	}
+
+	/**
+	 * @return the potencuaMaxia
+	 */
+	public int getPotencuaMaxia() {
+		return potencuaMaxia;
+	}
+
+	/**
+	 * @param potencuaMaxia the potencuaMaxia to set
+	 */
+	public void setPotencuaMaxia(int potencuaMaxia) {
+		this.potencuaMaxia = potencuaMaxia;
 	}
 }
 
 class ModeloEconomico extends ModeloPadrao {
 
+	private int tempoMaxCuzumento;
+	private int potencuaMaxia;
+	
 	@Override
 	public void descongelar() {
 		// TODO Auto-generated method stub
@@ -68,14 +102,47 @@ class ModeloEconomico extends ModeloPadrao {
 		// TODO Auto-generated method stub
 		super.grelhar();
 	}
-	
+
 	public void cozimentoBaixo() {
-		
+
+	}
+	
+	/**
+	 * @return the tempoMaxCuzumento
+	 */
+	public int getTempoMaxCuzumento() {
+		return tempoMaxCuzumento;
+	}
+
+	/**
+	 * @param tempoMaxCuzumento the tempoMaxCuzumento to set
+	 */
+	public void setTempoMaxCuzumento(int tempoMaxCuzumento) {
+		this.tempoMaxCuzumento = tempoMaxCuzumento;
+	}
+	
+
+	/**
+	 * @return the potencuaMaxia
+	 */
+	public int getPotencuaMaxia() {
+		return potencuaMaxia;
+	}
+	
+
+	/**
+	 * @param potencuaMaxia the potencuaMaxia to set
+	 */
+	public void setPotencuaMaxia(int potencuaMaxia) {
+		this.potencuaMaxia = potencuaMaxia;
 	}
 }
 
 class ModeloPotente extends ModeloPadrao {
 
+	private int tempoMaxCuzumento;
+	private int potencuaMaxia;
+	
 	@Override
 	public void descongelar() {
 		// TODO Auto-generated method stub
@@ -111,8 +178,36 @@ class ModeloPotente extends ModeloPadrao {
 		// TODO Auto-generated method stub
 		super.grelhar();
 	}
-	
+
 	public void cozimentoAlto() {
-		
+
+	}
+
+	/**
+	 * @return the tempoMaxCuzumento
+	 */
+	public int getTempoMaxCuzumento() {
+		return tempoMaxCuzumento;
+	}
+
+	/**
+	 * @param tempoMaxCuzumento the tempoMaxCuzumento to set
+	 */
+	public void setTempoMaxCuzumento(int tempoMaxCuzumento) {
+		this.tempoMaxCuzumento = tempoMaxCuzumento;
+	}
+
+	/**
+	 * @return the potencuaMaxia
+	 */
+	public int getPotencuaMaxia() {
+		return potencuaMaxia;
+	}
+
+	/**
+	 * @param potencuaMaxia the potencuaMaxia to set
+	 */
+	public void setPotencuaMaxia(int potencuaMaxia) {
+		this.potencuaMaxia = potencuaMaxia;
 	}
 }
