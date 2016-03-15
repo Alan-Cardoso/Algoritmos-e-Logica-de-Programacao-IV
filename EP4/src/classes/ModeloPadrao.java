@@ -4,210 +4,197 @@ package classes;
  * @author alan_
  *
  */
-public class ModeloPadrao { // Fazer método main
+public class ModeloPadrao {
 
 	public int tempoMaxCuzumento;
 	public int potencuaMaxia;
-	
-	public void descongelar() {
 
+	public int descongelar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	public void cozinhar() {
+	public int cozinhar(String palavra) {
 
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	public void timer() {
+	public int timer(String palavra) {
 
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	public void fazerPipoca() {
+	public int fazerPipoca(String palavra) {
 
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	public void fazerCha() {
+	public int fazerCha(String palavra) {
 
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	public void grelhar() {
+	public int grelhar(String palavra) {
 
-	}
-
-	/**
-	 * @return the tempoMaxCuzumento
-	 */
-	public int getTempoMaxCuzumento() {
-		return tempoMaxCuzumento;
-	}
-
-	/**
-	 * @param tempoMaxCuzumento the tempoMaxCuzumento to set
-	 */
-	public void setTempoMaxCuzumento(int tempoMaxCuzumento) {
-		this.tempoMaxCuzumento = tempoMaxCuzumento;
-	}
-
-	/**
-	 * @return the potencuaMaxia
-	 */
-	public int getPotencuaMaxia() {
-		return potencuaMaxia;
-	}
-
-	/**
-	 * @param potencuaMaxia the potencuaMaxia to set
-	 */
-	public void setPotencuaMaxia(int potencuaMaxia) {
-		this.potencuaMaxia = potencuaMaxia;
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 }
 
-class ModeloEconomico extends ModeloPadrao {
+abstract class NovasFuncoesEconomico extends ModeloPadrao {
 
-	private int tempoMaxCuzumento;
-	private int potencuaMaxia;
-	
-	@Override
-	public void descongelar() {
-		// TODO Auto-generated method stub
-		super.descongelar();
+	public int pesarCarne(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	@Override
-	public void cozinhar() {
-		// TODO Auto-generated method stub
-		super.cozinhar();
-	}
+	public abstract int pesarPeixe(String palavra);
 
-	@Override
-	public void timer() {
-		// TODO Auto-generated method stub
-		super.timer();
-	}
+	public int pesarAve(String palavra) {
 
-	@Override
-	public void fazerPipoca() {
-		// TODO Auto-generated method stub
-		super.fazerPipoca();
-	}
-
-	@Override
-	public void fazerCha() {
-		// TODO Auto-generated method stub
-		super.fazerCha();
-	}
-
-	@Override
-	public void grelhar() {
-		// TODO Auto-generated method stub
-		super.grelhar();
-	}
-
-	public void cozimentoBaixo() {
-
-	}
-	
-	/**
-	 * @return the tempoMaxCuzumento
-	 */
-	public int getTempoMaxCuzumento() {
-		return tempoMaxCuzumento;
-	}
-
-	/**
-	 * @param tempoMaxCuzumento the tempoMaxCuzumento to set
-	 */
-	public void setTempoMaxCuzumento(int tempoMaxCuzumento) {
-		this.tempoMaxCuzumento = tempoMaxCuzumento;
-	}
-	
-
-	/**
-	 * @return the potencuaMaxia
-	 */
-	public int getPotencuaMaxia() {
-		return potencuaMaxia;
-	}
-	
-
-	/**
-	 * @param potencuaMaxia the potencuaMaxia to set
-	 */
-	public void setPotencuaMaxia(int potencuaMaxia) {
-		this.potencuaMaxia = potencuaMaxia;
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 }
 
-class ModeloPotente extends ModeloPadrao {
+interface NovasFuncoesPotente {
 
-	private int tempoMaxCuzumento;
-	private int potencuaMaxia;
-	
-	@Override
-	public void descongelar() {
-		// TODO Auto-generated method stub
-		super.descongelar();
-	}
+	public int superDescongelante(String palavra);
 
-	@Override
-	public void cozinhar() {
-		// TODO Auto-generated method stub
-		super.cozinhar();
-	}
+	public int superTostado(String palavra);
+}
+
+class ModeloEconomico extends NovasFuncoesEconomico {
+
+	public int tempoMaxCuzumento;
+	public int potencuaMaxia;
 
 	@Override
-	public void timer() {
-		// TODO Auto-generated method stub
-		super.timer();
+	public int descongelar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
 	@Override
-	public void fazerPipoca() {
-		// TODO Auto-generated method stub
-		super.fazerPipoca();
+	public int cozinhar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
 	@Override
-	public void fazerCha() {
-		// TODO Auto-generated method stub
-		super.fazerCha();
+	public int timer(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
 	@Override
-	public void grelhar() {
-		// TODO Auto-generated method stub
-		super.grelhar();
+	public int fazerPipoca(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	public void cozimentoAlto() {
+	@Override
+	public int fazerCha(String palavra) {
 
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	/**
-	 * @return the tempoMaxCuzumento
-	 */
-	public int getTempoMaxCuzumento() {
-		return tempoMaxCuzumento;
+	@Override
+	public int grelhar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	/**
-	 * @param tempoMaxCuzumento the tempoMaxCuzumento to set
-	 */
-	public void setTempoMaxCuzumento(int tempoMaxCuzumento) {
-		this.tempoMaxCuzumento = tempoMaxCuzumento;
+	public int cozimentoBaixo(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	/**
-	 * @return the potencuaMaxia
-	 */
-	public int getPotencuaMaxia() {
-		return potencuaMaxia;
+	@Override
+	public int pesarPeixe(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+}
+
+class ModeloPotente extends ModeloPadrao implements NovasFuncoesPotente {
+
+	public int tempoMaxCuzumento;
+	public int potencuaMaxia;
+
+	@Override
+	public int descongelar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 
-	/**
-	 * @param potencuaMaxia the potencuaMaxia to set
-	 */
-	public void setPotencuaMaxia(int potencuaMaxia) {
-		this.potencuaMaxia = potencuaMaxia;
+	@Override
+	public int cozinhar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int timer(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int fazerPipoca(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int fazerCha(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int grelhar(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	public int cozimentoAlto(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int superDescongelante(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int superTostado(String palavra) {
+
+		palavra = "1";
+		return Integer.parseInt(palavra);
 	}
 }
