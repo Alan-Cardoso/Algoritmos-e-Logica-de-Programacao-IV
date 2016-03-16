@@ -48,19 +48,15 @@ public class ModeloPadrao {
 
 abstract class NovasFuncoesEconomico extends ModeloPadrao {
 
-	public int pesarCarne(String palavra) {
+	public abstract int pesarCarne(String palavra);
+
+	public int pesarPeixe(String palavra) {
 
 		palavra = "1";
 		return Integer.parseInt(palavra);
 	}
 
-	public abstract int pesarPeixe(String palavra);
-
-	public int pesarAve(String palavra) {
-
-		palavra = "1";
-		return Integer.parseInt(palavra);
-	}
+	public abstract int pesarAve(String palavra);
 }
 
 interface NovasFuncoesPotente {
@@ -128,6 +124,18 @@ class ModeloEconomico extends NovasFuncoesEconomico {
 
 		palavra = "1";
 		return Integer.parseInt(palavra);
+	}
+
+	@Override
+	public int pesarCarne(String palavra) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int pesarAve(String palavra) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
 
