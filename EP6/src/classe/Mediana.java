@@ -11,56 +11,74 @@ import java.util.ArrayList;
  */
 public class Mediana {
 
-	static ArrayList<Integer> numero = new ArrayList<Integer>();
+	public class No {
+		Integer numero;
+		No no;
+
+		public No(int numAdicionado) {
+			numero = numAdicionado;
+		}
+	}
+
+	static ArrayList<No> lista = new ArrayList<No>();
 
 	public static void main(String[] args) {
-		preencheArrayList(numero);
-		calcularMediana(numero);
+		preencheArrayList(lista);
+		calcularMediana(lista);
 	}
 
-	@SuppressWarnings({})
-	private static void preencheArrayList(ArrayList<Integer> lista) {
-		lista.add(0, 50);
-		lista.add(1, 25);
-		lista.add(2, 10);
-		lista.add(3, 35);
-		lista.add(4, 70);
-		lista.add(5, 55);
-		lista.add(6, 45);
-		lista.add(7, 20);
-		lista.add(8, 40);
-		lista.add(9, 15);
+	@SuppressWarnings("null")
+	private static void preencheArrayList(ArrayList<No> lista) {
+
+		lista.add(0, new No(50));
+		lista.add(1, new No(35));
+		lista.add(2, new No(70));
+		lista.add(3, new No(10));
+		lista.add(4, new No(35));
+		lista.add(5, new No(15));
+		lista.add(6, new No(5));
+		lista.add(7, new No(40));
+		lista.add(8, new No(60));
+		lista.add(9, new No(55));
+
 	}
 
-	private static void calcularMediana(ArrayList<Integer> lista) {
-		Integer maiorNum = 0;
-		Integer menorNum = numero.get(0);
-		Integer i = 0, indiceMenor = null;
-		Integer indiceMaior = null;
+	private static void calcularMediana(ArrayList<No> lista) {
+		Integer maiorNum = null;
+		Integer menorNum = null;
+		Integer i = 0;
+		Integer indiceMenor = 0;
+		Integer indiceMaior = 0;
 
-
-		if (numero.size() == 1) {
-			System.out.println("A valor da mediana da lista informada e de: "  + numero.get(0));
+		if (lista.size() == 1) {
+			System.out.println("A valor da mediana da lista informada e de: "
+					+ lista.get(0).numero);
 			System.exit(0);
 		}
-		if (numero.size() == 2) {
-			// System.out.println("A valor da mediana da lista informada e de: "
-			// +(numero.get(0) + numero.get(1)) / 2);
+		if (lista.size() == 2) {
+			System.out.println("A valor da mediana da lista informada e de: "
+					+ (lista.get(0).numero + lista.get(1).numero) / 2);
 			System.exit(0);
 		}
-		while (i < numero.size()) {
-			if (numero.get(i) < menorNum) {
-				menorNum = numero.get(i);
+		while (i < lista.size()) {
+			if (lista.get(i).numero < menorNum) {
+				menorNum = lista.get(i).numero;
 				indiceMenor = i;
 			}
-			if (numero.get(i) > maiorNum) {
-				maiorNum = numero.get(i);
+			if (lista.get(i).numero > maiorNum) {
+				maiorNum = lista.get(i).numero;
 				indiceMaior = i;
 			}
 			i++;
 		}
-		numero.remove(indiceMenor);
-		numero.remove(indiceMaior);
-		calcularMediana(numero);
+		System.out.println(lista.get(indiceMenor));
+
+		lista.remove(lista.get(indiceMenor));
+		lista.remove(lista.get(indiceMaior));
+
+		i = 0;
+		indiceMaior = 0;
+		indiceMenor = 0;
+		calcularMediana(lista);
 	}
 }
