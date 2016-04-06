@@ -3,82 +3,68 @@
  */
 package classe;
 
-import java.util.ArrayList;
-
 /**
  * @author alan_
  *
  */
 public class Mediana {
 
-	public class No {
-		Integer numero;
-		No no;
-
-		public No(int numAdicionado) {
-			numero = numAdicionado;
-		}
-	}
-
-	static ArrayList<No> lista = new ArrayList<No>();
+	static Integer[] lista = { 50, 35, 70, 10, 35, 15, 5, 40, 60, 65 };
 
 	public static void main(String[] args) {
-		preencheArrayList(lista);
 		calcularMediana(lista);
 	}
 
-	@SuppressWarnings("null")
-	private static void preencheArrayList(ArrayList<No> lista) {
+	private static void calcularMediana(Integer[] lista) {
+		int i = 0;
+		int numMenor = 0;
+		int numMaior = 0;
+		
+		int menorNum = lista[0];
+		int maiorNum = lista[0];
 
-		lista.add(0, new No(50));
-		lista.add(1, new No(35));
-		lista.add(2, new No(70));
-		lista.add(3, new No(10));
-		lista.add(4, new No(35));
-		lista.add(5, new No(15));
-		lista.add(6, new No(5));
-		lista.add(7, new No(40));
-		lista.add(8, new No(60));
-		lista.add(9, new No(55));
-
-	}
-
-	private static void calcularMediana(ArrayList<No> lista) {
-		Integer maiorNum = null;
-		Integer menorNum = null;
-		Integer i = 0;
-		Integer indiceMenor = 0;
-		Integer indiceMaior = 0;
-
-		if (lista.size() == 1) {
-			System.out.println("A valor da mediana da lista informada e de: "
-					+ lista.get(0).numero);
+		if (lista.length == 1) {
+			System.out.println("A valor da mediana da lista informada e de: " + lista[0]);
 			System.exit(0);
-		}
-		if (lista.size() == 2) {
-			System.out.println("A valor da mediana da lista informada e de: "
-					+ (lista.get(0).numero + lista.get(1).numero) / 2);
+		} else if (lista.length == 2) {
+			System.out.println("A valor da mediana da lista informada e de: " + (lista[0] + lista[1]) / 2);
 			System.exit(0);
-		}
-		while (i < lista.size()) {
-			if (lista.get(i).numero < menorNum) {
-				menorNum = lista.get(i).numero;
-				indiceMenor = i;
+		} else {
+			while (lista.length > i) {
+				
+				if (menorNum < lista[i]) {
+					numMenor = i;
+					menorNum = lista[i];
+				}
+				
+				if (maiorNum > lista[i]) {
+					numMaior = i;
+					maiorNum = lista[i];
+				}
+				if (lista.length == i) {
+					lista[numMenor] = 0;
+					lista[numMaior] = 0;
+				}
+				i++;
+				if(i == 10){
+					System.out.println("Funfou!!!");
+				}
+				
+				Integer arrayParcialS[] = new Integer[lista.length-2];
+				if (lista[i] != null) {
+					arrayParcialS[i] = lista[i];
+					lista = new Integer[lista.length-2];
+					lista[i] = arrayParcialS[i];
+				}
 			}
-			if (lista.get(i).numero > maiorNum) {
-				maiorNum = lista.get(i).numero;
-				indiceMaior = i;
+			lista[numMenor] = null;
+			lista[numMaior] = null;
+			
+			for (int j = 0; j < lista.length; j++) {
+				System.out.println(lista[j]);
 			}
-			i++;
 		}
-		System.out.println(lista.get(indiceMenor));
 
-		lista.remove(lista.get(indiceMenor));
-		lista.remove(lista.get(indiceMaior));
-
-		i = 0;
-		indiceMaior = 0;
-		indiceMenor = 0;
-		calcularMediana(lista);
+		//calcularMediana(lista);
 	}
 }
