@@ -13,82 +13,17 @@ public class No {
 
 	public No(Integer valor) {
 		setValor(valor);
-	}
 
-	public static void main(String[] args) {
-		addNo(raiz, 50);
-		addNo(raiz, 25);
-	}
-
-	/**
-	 * Metodo para adicionar valores ordenados em uma arvore
-	 * 
-	 * @param no
-	 * @param valor
-	 */
-	private static void addNo(No no, Integer valor) {
-		/*
-		 * Verifica se o valor da raiz da arvore é null. Se a raiz for null será
-		 * adicionado um novo No, passando o novo valor a ser inserido
-		 */
-		if (no == null) {
-			no = new No(valor);
-		} else {
-			/*
-			 * Aqui vai ser verificado se o novo valor a ser inserido, é menor
-			 * que o valor da raiz.
-			 */
-			if (valor < No.getValor()) {
-				/*
-				 * Se o novo valor a ser inserido for menor que a raiz. Vai
-				 * verificar se o lado direito da raiz é diferente null.
-				 */
-				if (No.getEsquerdo() != null) {
-					/*
-					 * Se o lado direito da raiz é diferente null. Vai ser
-					 * inserido o novo valor a esse lado
-					 */
-					addNo(No.getEsquerdo(), valor);
-				} else {
-					/*
-					 * Se o lado direito da raiz é null. Vai ser inserido o novo
-					 * No com esse novo valor a esse lado
-					 */
-					No.setEsquerdo(new No(valor));
-				}
-				/*
-				 * Se a raiz não for null. Vai ser verificado se o novo valor a
-				 * ser inserido, é maior que o valor da raiz.
-				 */
-			} else if (valor > No.getValor()) {
-				/*
-				 * Se o novo valor a ser inserido for maior que a raiz. Vai
-				 * verificar se o lado direito da raiz é diferente null.
-				 */
-				if (No.getDireito() != null) {
-					/*
-					 * Se o lado direito da raiz é diferente null. Vai ser
-					 * inserido o novo valor a esse lado
-					 */
-					addNo(No.getDireito(), valor);
-				} else {
-					/*
-					 * Se o lado direito da raiz é null. Vai ser inserido o novo
-					 * No com esse novo valor a esse lado
-					 */
-					No.setDireito(new No(valor));
-				}
-			}
-		}
 	}
 
 	/**
 	 * Metodopara imprimir arvore em ordem
 	 * 
-	 * @param no
+	 * @param No
 	 */
-	public static void emOrdem(No no) {
-		if (no != null) {
+	@SuppressWarnings("static-access")
+	public static void emOrdem(No No) {
+		if (No != null) {
 			emOrdem(No.getEsquerdo());
 			System.out.print(No.getValor() + " ");
 			emOrdem(No.getDireito());
@@ -98,11 +33,12 @@ public class No {
 	/**
 	 * Metodo que busca um valor na arvore
 	 * 
-	 * @param no
+	 * @param No
 	 * @param valor
 	 * @return
 	 */
-	public Object busca(No no, Integer valor) {// NÂO TERMINADO
+	@SuppressWarnings("static-access")
+	public Object busca(No No, Integer valor) {// NÂO TERMINADO
 		if (No.getValor() == null) {
 			return "O valor " + valor + " não esta presente na arvore";
 		} else {
@@ -114,32 +50,33 @@ public class No {
 					if (No.getDireito() == null) {
 						return null;
 					}
-					return No.getDireito().busca(no, valor);
+					return No.getDireito().busca(No, valor);
 				} else {
 					if (No.getEsquerdo() == null) {
 						return null;
 					}
-					return No.getEsquerdo().busca(no, valor);
+					return No.getEsquerdo().busca(No, valor);
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * Metodo que retoena o valor minimo da arvore
 	 * 
-	 * @param no
+	 * @param No
 	 * @return
 	 */
-	@SuppressWarnings("unused")
-	private No minimo(No no) {// NÂO TERMINADO
-        if (no != null) {  
-            while (No.getEsquerdo() != null) {  
-                no = No.getEsquerdo();  
-            }  
-        }  
-        return no;  
-    }
+	@SuppressWarnings({ "unused", "static-access" })
+	private Integer minimo(No No, Integer min) {// NÂO TERMINADO
+		if (No.getValor() != null) {
+			return min;
+		}
+		if (No.getValor() < min) {
+			return No.getValor();
+		}
+		return minimo(No.getEsquerdo(), min);
+	}
 
 	public static No getRaiz() {
 		return raiz;
