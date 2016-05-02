@@ -2,7 +2,8 @@ package classe;
 
 /**
  * @author AlanCardoso
- *
+ * EP8
+ * 
  */
 public class No {
 
@@ -13,7 +14,6 @@ public class No {
 
 	public No(Integer valor) {
 		setValor(valor);
-
 	}
 
 	/**
@@ -38,26 +38,14 @@ public class No {
 	 * @return
 	 */
 	@SuppressWarnings("static-access")
-	public Object busca(No No, Integer valor) {// NÂO TERMINADO
-		if (No.getValor() == null) {
-			return "O valor " + valor + " não esta presente na arvore";
+	public String busca(No no, Integer valor) {
+		if (valor == null || valor == no.getValor()) {
+			return "O valor"+ no.getValor()+" foi encontrado na arvore";
+		}
+		if(valor < no.getValor()) {
+			return busca(no.esquerdo, valor);
 		} else {
-			if (valor == No.getValor()) {
-				return "O valor " + valor + " esta presente na arvore";
-			} else {
-
-				if (valor > No.getValor()) {
-					if (No.getDireito() == null) {
-						return null;
-					}
-					return No.getDireito().busca(No, valor);
-				} else {
-					if (No.getEsquerdo() == null) {
-						return null;
-					}
-					return No.getEsquerdo().busca(No, valor);
-				}
-			}
+			return busca(no.direito, valor);
 		}
 	}
 
@@ -67,17 +55,40 @@ public class No {
 	 * @param No
 	 * @return
 	 */
+	@SuppressWarnings({ "static-access" })
+	private Integer minimo(No no, Integer minimo) {
+		if (No.getValor() == null) {
+			return minimo;
+		}
+		if (No.getValor() < minimo) {
+			minimo =  no.getValor();
+		}
+		return minimo(No.getEsquerdo(), minimo);
+	}
+	
+	/**
+	 * Metodo que retoena o valor maxímo da arvore
+	 * 
+	 * @param No
+	 * @param maximo
+	 * @return
+	 */
 	@SuppressWarnings({ "unused", "static-access" })
-	private Integer minimo(No No, Integer min) {// NÂO TERMINADO
-		if (No.getValor() != null) {
-			return min;
+	private Integer Maximo(No no, Integer maximo) {
+		if (No.getValor() == null) {
+			return maximo;
 		}
-		if (No.getValor() < min) {
-			return No.getValor();
+		if (No.getValor() > maximo) {
+			maximo =  no.getValor();
 		}
-		return minimo(No.getEsquerdo(), min);
+		return minimo(No.getDireito(), maximo);
 	}
 
+	/**
+	 * Métodos Gether and Seters nos atributos de Nó.
+	 * 
+	 * @return
+	 */
 	public static No getRaiz() {
 		return raiz;
 	}
