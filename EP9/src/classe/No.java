@@ -58,17 +58,17 @@ public class No {
 		}
 	}
 	/**
-	 * Método para percorrer a Árvore em ordem.
+	 * Metodo para percorrer arvore em ordem
 	 * 
-	 * @return 
+	 * @param No
 	 */
 	@SuppressWarnings("static-access")
-	public void percorreArvore(No no) {
-		 if( no != null ) { 
-             System.out.println(no.valor);
-		 }
-		 percorreArvore( no.getEsquerdo());    
-         percorreArvore ( no.getDireito() ); 
+	public static void percorrerArvore(No No) {
+		if (No != null) {
+			percorrerArvore(No.getEsquerdo());
+			System.out.print(No.getValor());
+			percorrerArvore(No.getDireito());
+		}
 	}
 
 	/**
